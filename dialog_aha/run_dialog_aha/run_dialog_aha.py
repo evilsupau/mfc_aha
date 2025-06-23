@@ -7,16 +7,16 @@ try:
 
     # Wait for the application to start and the window to appear
     # Adjust the timeout as necessary
-    main_window = app.window(title_re="Aha!", timeout=10) # Assuming 'Aha!' is part of the window title
-    main_window.wait('ready', timeout=30)
+    main_window = app.window(title_re="Aha!")
+    main_window.wait("ready", timeout=30)
 
     # Find the OK button. Common texts for OK buttons are "OK", "OKAY", "Ok"
     # If the button text is different, this will need to be adjusted.
     ok_button = main_window.child_window(title="OK", class_name="Button")
-    ok_button.wait('visible', timeout=10)
+    ok_button.wait('enabled', timeout=10)
 
     # Click the OK button
-    ok_button.click()
+    ok_button.click_input()
 
     print("Successfully started dialog_aha.exe and clicked the OK button.")
 
