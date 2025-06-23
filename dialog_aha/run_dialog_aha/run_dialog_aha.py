@@ -3,12 +3,13 @@ import time
 
 try:
     # Start the application
-    app = Application().start("..\\x64\\Release\\dialog_aha.exe")
+    app = Application(backend="win32").start("..\\x64\\Release\\dialog_aha.exe")
 
     # Wait for the application to start and the window to appear
     # Adjust the timeout as necessary
     main_window = app.window(title_re="Aha!")
     main_window.wait("ready", timeout=30)
+    main_window.print_control_identifiers()  # Print control identifiers for debugging
 
     # Find the OK button. Common texts for OK buttons are "OK", "OKAY", "Ok"
     # If the button text is different, this will need to be adjusted.
